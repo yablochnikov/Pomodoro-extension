@@ -8,7 +8,7 @@ updateTime();
 setInterval(updateTime, 1000);
 
 function updateTime() {
-  chrome.storage.local.get(["timer", "timeOption"], (res) => {
+  chrome.storage.local.get(["timer", "timeOption", "isRunning"], (res) => {
     const timeOption = res.timeOption || 25;
 
     const minutes = `${timeOption - Math.ceil(res.timer / 60)}`.padStart(
@@ -20,6 +20,7 @@ function updateTime() {
       seconds = `${60 - (res.timer % 60)}`.padStart(2, "0");
     }
     timeElement.innerText = minutes + ":" + seconds;
+    startTimerBtn.innerText = res.isRunning ? "Stop Timer" : "Start Timer";
   });
 }
 
@@ -42,6 +43,7 @@ function renderTasks(taskNum) {
   const taskRow = document.createElement("div");
 
   const text = document.createElement("input");
+  text.classList.add("task-input");
   text.type = "text";
   text.placeholder = "Enter a task...";
   text.value = tasks[taskNum];
@@ -51,8 +53,10 @@ function renderTasks(taskNum) {
   });
 
   const deleteBtn = document.createElement("input");
+
   deleteBtn.type = "button";
   deleteBtn.value = "X";
+  deleteBtn.classList.add("task-delete");
   deleteBtn.addEventListener("click", () => {
     deleteTask(taskNum, taskRow);
   });
@@ -81,7 +85,7 @@ function deleteTask(taskNum, taskRow) {
 startTimerBtn.addEventListener("click", (event) => {
   chrome.storage.local.get(["isRunning"], (res) => {
     chrome.storage.local.set({ isRunning: !res.isRunning }, () => {
-      startTimerBtn.innerText = res.isRunning ? "Start Timer" : "Stop Timer";
+      startTimerBtn.innerText = res.isRunning ? "Stop Timer" : "Start Timer";
     });
   });
 });

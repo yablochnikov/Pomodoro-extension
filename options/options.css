@@ -1,0 +1,41 @@
+body {
+  background: indianred;
+}
+
+h1 {
+  text-align: center;
+  color: whitesmoke;
+  font-size: 50px;
+  font-weight: normal;
+}
+
+h2 {
+  font-weight: normal;
+  color: whitesmoke;
+}
+
+#time-option {
+  outline: none;
+  border: none;
+  width: 300px;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+#save-btn {
+  display: block;
+  margin-top: 40px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  padding: 10px;
+  color: indianred;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+#save-btn:hover {
+  background-color: whitesmoke;
+  color: red;
+}

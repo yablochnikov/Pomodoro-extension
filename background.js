@@ -6,7 +6,7 @@ chrome.alarms.onAlarm.addListener((alarm) => {
   if (alarm.name === "pomodoroTimer") {
     chrome.storage.local.get(["timer", "isRunning", "timeOption"], (res) => {
       const timeOption = res.timeOption || 25;
-      console.log(res);
+
       if (res.isRunning) {
         let timer = res.timer + 1;
         let isRunning = true;

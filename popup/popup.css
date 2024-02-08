@@ -1,13 +1,85 @@
 body {
   height: 400px;
   width: 300px;
+  background: indianred;
+  margin: 0;
 }
 
 .header {
   display: flex;
   justify-content: center;
   height: 40px;
+  background-color: whitesmoke;
+  padding: 10px;
 }
 
 .main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#time {
+  text-align: center;
+  color: whitesmoke;
+  font-size: 50px;
+  font-weight: normal;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px;
+}
+
+.controls > button {
+  color: indianred;
+  background-color: whitesmoke;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.controls > button:hover {
+  background-color: white;
+  color: red;
+  cursor: pointer;
+}
+
+#task-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+#task-container {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.task-input {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.task-delete {
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  height: 25px;
+  width: 25px;
+  color: indianred;
+  background-color: whitesmoke;
+  font-weight: 700;
+  cursor: pointer;
 }
